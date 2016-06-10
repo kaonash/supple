@@ -11,9 +11,10 @@ config :logger, level: :warn
 
 # Configure your database
 config :supple, Supple.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "supple_test",
+  adapter: Ecto.Adapters.MySQL,
+  username: "system",
+  password: "system",
+  database: "speeda",
   hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  port: 3306,
+  pool_size: 10
