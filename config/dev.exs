@@ -38,6 +38,6 @@ config :supple, Supple.Repo,
   username: "system",
   password: "system",
   database: "speeda",
-  hostname: "localhost",
-  port: 3306,
+  hostname: "speeda-db-common",
+  port: 3307,
   pool_size: 10
