@@ -14,9 +14,9 @@ defmodule Supple.Router do
   end
 
   scope "/", Supple do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :api
 
-    get "/", PageController, :index
+    resources "/supple/v1/suppliers", SupplierController, only: [:index]
   end
 
   # Other scopes may use custom stacks.
