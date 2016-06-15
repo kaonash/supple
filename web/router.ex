@@ -14,6 +14,12 @@ defmodule Supple.Router do
   end
 
   scope "/", Supple do
+    pipe_through :browser
+
+    get "/", PageController, :index
+  end
+
+  scope "/", Supple do
     pipe_through :api
 
     resources "/supple/v1/suppliers", SupplierController, only: [:index]
