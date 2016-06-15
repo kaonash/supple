@@ -20,8 +20,10 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
+import mdl from "material-design-lite"
 import React from "react"
 import ReactDOM from "react-dom"
+
 
 class HelloWorld extends React.Component {
   render() {
