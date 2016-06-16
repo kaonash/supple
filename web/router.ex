@@ -22,7 +22,8 @@ defmodule Supple.Router do
   scope "/", Supple do
     pipe_through :api
 
-    resources "/supple/v1/suppliers", SupplierController, only: [:index]
+    # resources "/supple/v1/suppliers", SupplierController, only: [:index]
+    resources "/supple/v1/suppliers", SupplierController
   end
 
   # Other scopes may use custom stacks.
