@@ -30,8 +30,60 @@ class HelloWorld extends React.Component {
     return (<h1>Hello World!</h1>)
   }
 }
+class HelloWorld2 extends React.Component {
+  render() {
+    return (<h1>Hello World2!</h1>)
+  }
+}
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "supple/v1/suppliers", false);
+      
+xhr.send();
+console.log(xhr.response);
+class Suppliers extends React.Component {
+  onClick(id) {
+   console.log(id)
+  },
+  render() {
+  	var arr = JSON.parse(xhr.response)
+
+    var rows = [];
+	for ( const key in arr ) {
+		var info = arr[key];
+    	rows.push(<tr key={key}>
+				      <td className="mdl-data-table__cell--non-numeric">{info.table_name}</td>
+				      <td className="mdl-data-table__cell--non-numeric">{info.supplier_name}</td>
+				      <td className="mdl-data-table__cell--non-numeric">{info.supplier_id}</td>
+				      <td className="mdl-data-table__cell--non-numeric">{info.original_name}</td>
+				      <td className="mdl-data-table__cell--non-numeric">{info.column_name}</td>
+				      <td className="mdl-data-table__cell--non-numeric"><button className="mdl-button mdl-js-button mdl-js-ripple-effect" onClick={this.onClick(info.supplier_id)}>DELETE!</button></td>
+				    </tr>);
+	}
+
+    return <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th className="mdl-data-table__cell--non-numeric">table_name</th>
+      <th className="mdl-data-table__cell--non-numeric">supplier_name</th>
+      <th className="mdl-data-table__cell--non-numeric">supplier_id</th>
+      <th className="mdl-data-table__cell--non-numeric">original_name</th>
+      <th className="mdl-data-table__cell--non-numeric">column_name</th>
+      <th className="mdl-data-table__cell--non-numeric">action</th>
+    </tr>
+  </thead>
+  <tbody>{rows}</tbody>
+  </table>
+  }
+}
+
+ReactDOM.render(
+  <Suppliers/>,
+  document.getElementById("hello-world2")
+);
 
 ReactDOM.render(
   <HelloWorld/>,
   document.getElementById("hello-world")
-)
+);
+
