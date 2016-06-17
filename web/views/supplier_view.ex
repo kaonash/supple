@@ -5,4 +5,7 @@ defmodule Supple.SupplierView do
     supplier
   end
 
+  def render("delete.json", %{splr_id: splr_id}) do
+    splr_id
+  end
 end
